@@ -42,8 +42,7 @@ public class Register extends Base {
 	@BeforeMethod
 	public void setup() {
 
-		driver = openBrowserAndApp1icationPageURL();
-
+		driver = openBrowserAndApplicationPageURL();
 		headerOptions = new HeaderOptions(driver);
 		headerOptions.clickOnMyAccountDropMenu();
 		registerPage = headerOptions.selectRegisterOption();
@@ -226,7 +225,7 @@ public class Register extends Base {
 		registerPage.selectPrivacyPolicy();
 		accountSuccessPage = registerPage.clickOnContinueButton();
 		myAccountPage = accountSuccessPage.clickOnContinueButton();
-		newsLetterPage = myAccountPage.clickOnSubscribeUnsubscribeToNews1etterOption();
+		newsLetterPage = myAccountPage.clickOnSubscribeUnsubscribeToNewsletterOption();
 		newsLetterPage.isyesNewsletterOptionSelected();
 
 		Assert.assertTrue(newsLetterPage.didWeNavigateToNewsletterPage());
@@ -247,7 +246,7 @@ public class Register extends Base {
 		registerPage.selectPrivacyPolicy();
 		accountSuccessPage = registerPage.clickOnContinueButton();
 		myAccountPage = accountSuccessPage.clickOnContinueButton();
-		newsLetterPage = myAccountPage.clickOnSubscribeUnsubscribeToNews1etterOption();
+		newsLetterPage = myAccountPage.clickOnSubscribeUnsubscribeToNewsletterOption();
 		Assert.assertTrue(newsLetterPage.didWeNavigateToNewsletterPage());
 		Assert.assertTrue(newsLetterPage.isNoNewsletterOptionSelected());
 
@@ -294,7 +293,7 @@ public class Register extends Base {
 
 		registerPage.enterFirstName(prop.getProperty("firstname"));
 		registerPage.enterLastName(prop.getProperty("lastname"));
-		registerPage.enterEmail(prop.getProperty("exisitingEmail"));
+		registerPage.enterEmail(prop.getProperty("existingEmail"));
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmationPassword(prop.getProperty("validPassword"));
@@ -405,24 +404,24 @@ public class Register extends Base {
 //				.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.SPACE).sendKeys(Keys.TAB).sendKeys(Keys.ENTER)
 //				.build().perform();
 
-		actions = clickKeyboradKeyMu1tip1eTimes(getActions(driver), Keys.TAB, 23);
+		actions = clickKeyboradKeyMultipleTimes(getActions(driver), Keys.TAB, 23);
 		actions = typeTextUsingActions(actions, prop.getProperty("firstname"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, prop.getProperty("lastname"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, CommonUtilities.generateBrandNewEmail());
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, prop.getProperty("telephoneNumber"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, prop.getProperty("validPassword"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, prop.getProperty("validPassword"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.ARROW_LEFT, 1);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 2);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.SPACE, 1);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.ENTER, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.ARROW_LEFT, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 2);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.SPACE, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.ENTER, 1);
 
 		rightColumnOptions = registerPage.getRightColumnOptions();
 
@@ -1121,7 +1120,7 @@ public class Register extends Base {
 
 		Assert.assertEquals(getPageTitle(registerPage.getDriver()), "Register Account");
 
-		Assert.assertEquals(getPageURL(registerPage.getDriver()), prop.getProperty("registerPageURL"));
+		Assert.assertEquals(getPageURL(registerPage.getDriver()), getBaseURL()+prop.getProperty("registerPageURL"));
 
 		Assert.assertTrue(registerPage.didWeNavigatetoRegisterpage());
 

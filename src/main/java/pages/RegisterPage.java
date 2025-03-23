@@ -239,6 +239,17 @@ public class RegisterPage extends RootPage {
 		elementUtilities.clickOnElement(noNewsletterOption);
 	}
 
+	public AccountSuccessPage registeringAnAccount(String firstNameText,String lastNameText,String emailText,String telephoneText,String passwordText) {
+		enterFirstName(firstNameText);
+		enterLastName(lastNameText);
+		enterEmail(emailText);
+		enterTelephone(telephoneText);
+		enterPassword(passwordText);
+		enterConfirmationPassword(passwordText);
+		selectPrivacyPolicy();
+		return clickOnContinueButton();
+	}
+
 	public void enterFirstName(String firstNameText) {
 		elementUtilities.enterTextIntoElement(firstNameField, firstNameText);
 	}

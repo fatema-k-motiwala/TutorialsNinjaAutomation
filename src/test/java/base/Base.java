@@ -16,24 +16,33 @@ import org.testng.annotations.AfterMethod;
 import pages.AboutUsPage;
 import pages.AccountLogoutPage;
 import pages.AccountSuccessPage;
+import pages.AddAddressPage;
+import pages.AddressBookPage;
 import pages.AffiliatePage;
 import pages.BrandsPage;
 import pages.ChangePasswordPage;
+import pages.CheckoutPage;
+import pages.CheckoutSuccessPage;
 import pages.ContactUsPage;
 import pages.DeliveryInformationPage;
+import pages.EditAddressPage;
 import pages.FooterOptionsPage;
 import pages.ForgotYourPasswordPage;
 import pages.GiftCertificatePage;
+import pages.GuestCheckoutPage;
 import pages.HeaderOptions;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.MyAccountInformationPage;
 import pages.MyAccountPage;
 import pages.NewsLetterPage;
+import pages.OrderHistoryPage;
+import pages.OrderInformationPage;
 import pages.PrivacyPolicyPage;
 import pages.ProductComparisionPage;
 import pages.ProductDisplayPage;
 import pages.RegisterPage;
+import pages.ReturnInformationPage;
 import pages.ReturnsPage;
 import pages.RightColumnOptions;
 import pages.SearchPage;
@@ -77,6 +86,15 @@ public class Base {
 	public AccountLogoutPage accountLogoutPage;
 	public ProductDisplayPage productDisplayPage;
 	public ProductComparisionPage productComparisionPage;
+	public AddressBookPage addressBookPage;
+	public AddAddressPage addAddressPage;
+	public EditAddressPage editAddressPage;
+	public OrderHistoryPage orderHistoryPage;
+	public OrderInformationPage orderInformationPage;
+	public ReturnInformationPage returnInformationPage;
+	public CheckoutPage checkoutPage;
+	public CheckoutSuccessPage checkoutSuccessPage;
+	public GuestCheckoutPage guestCheckoutPage;
 	
 	@AfterMethod
 	public void teardown() {
@@ -85,7 +103,7 @@ public class Base {
 		}
 	}
 
-	public WebDriver openBrowserAndApp1icationPageURL() {
+	public WebDriver openBrowserAndApplicationPageURL() {
 		prop = CommonUtilities.loadPropertiesFile();
 		browserName = prop.getProperty("browserName");
 
@@ -127,12 +145,22 @@ public class Base {
 		return actions;
 	}
 
-	public Actions clickKeyboradKeyMu1tip1eTimes(Actions actions, Keys keyName, int noOfTimes) {
+	public Actions clickKeyboradKeyMultipleTimes(Actions actions, Keys keyName, int noOfTimes) {
+		actions = getActions(driver);
 		for (int i = 1; i <= noOfTimes; i++) {
 			actions.sendKeys(keyName).perform();
 		}
 		return actions;
 	}
+	
+	public Actions clickKeyboradKeyMultipleTimes(WebDriver driver,Keys keyName,int noOfTimes) {
+		actions = getActions(driver);
+		for (int i = 1; i <= noOfTimes; i++) {
+			actions.sendKeys(keyName).perform();
+		}
+		return actions;
+	}
+
 
 	public Actions typeTextUsingActions(Actions actions, String text) {
 		actions.sendKeys(text).perform();
@@ -156,4 +184,25 @@ public class Base {
 	    return prop;
 	}
 	
+	
+	public void refreshAndNavigateToPage(WebDriver driver,String pageURL) {
+		refreshPage(driver);
+		navigateToPage(pageURL);
+	}
+	
+	public void navigateToPage(String pageURL) {
+		driver.navigate().to(pageURL);
+	}
+	
+	public void pressTwoKeysTogether(WebDriver driver,Keys keyNameOne,Keys keyNameTwo) {
+		actions = getActions(driver);
+		actions.keyDown(keyNameOne).sendKeys(keyNameTwo).keyUp(keyNameOne)
+		.keyUp(keyNameTwo).build().perform();
+	}
+	
+	public String getBaseURL() {
+		return prop.getProperty("appURL");
+	}
+	
+
 }

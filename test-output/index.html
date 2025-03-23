@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\kassi\AppData\Local\Temp\testng-eclipse-1092724740\testng-customsuite.xml</span>
+                    <span>C:\Users\kassi\AppData\Local\Temp\testng-eclipse-147712784\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.Search" class="method navigator-link" hash-for-method="verifyShowProductsByLimitingCount">verifyShowProductsByLimitingCount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.Login" class="method navigator-link" hash-for-method="verifyNumberOfUnsuccessfulAttempts">verifyNumberOfUnsuccessfulAttempts</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +121,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">tests.Search</span>
+              <span class="class-name">tests.Login</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyShowProductsByLimitingCount">
-                  </a> <!-- verifyShowProductsByLimitingCount -->
-                  <span class="method-name">verifyShowProductsByLimitingCount</span>
+                  <a name="verifyNumberOfUnsuccessfulAttempts">
+                  </a> <!-- verifyNumberOfUnsuccessfulAttempts -->
+                  <span class="method-name">verifyNumberOfUnsuccessfulAttempts</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\kassi\AppData\Local\Temp\testng-eclipse-1092724740\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\kassi\AppData\Local\Temp\testng-eclipse-147712784\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,11 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.Search&quot;&gt;
+      &lt;class name=&quot;tests.Login&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyShowProductsByLimitingCount&quot;/&gt;
+          &lt;include name=&quot;verifyNumberOfUnsuccessfulAttempts&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- tests.Search --&gt;
+      &lt;/class&gt; &lt;!-- tests.Login --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -191,14 +191,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyShowProductsByLimitingCount')
-data.setCell(0, 2, 'tests.Search')
-data.setCell(0, 3, 853);
+data.setCell(0, 1, 'verifyNumberOfUnsuccessfulAttempts')
+data.setCell(0, 2, 'tests.Login')
+data.setCell(0, 3, 3218);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 853 ms</span>
+              <span class="suite-total-time">Total running time: 3 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -213,39 +213,51 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">14 ignored methods</span>
+            <span class="header-content">20 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">tests.Search</span>
+              <span class="ignored-class-name">tests.Login</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifySearchWithAnNonExistingProduct</span>
+                <span class="ignored-method-name">verifyPlaceholdersInLoginPage</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchBySelectingCategoryOfProduct</span>
+                <span class="ignored-method-name">verifyLoggingIntoApplicaLtionUsingChangedPassword</span>
                 <br/>
-                <span class="ignored-method-name">verifyListAndGridViewsInSearchResultsPageHavingOneProduct</span>
+                <span class="ignored-method-name">verifyRegisterAccountInAllEnvironments</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchAfterLogin</span>
+                <span class="ignored-method-name">verifyRegisterAccountPageBreadcrumbURLTitleHeading</span>
                 <br/>
-                <span class="ignored-method-name">verifyListAndGridViewsWhenMu1tip1eProductsAreDisp1ayed</span>
+                <span class="ignored-method-name">verifyCopyingOfTextEnteredIntoPasswordField</span>
                 <br/>
-                <span class="ignored-method-name">verifyA11SortingOptionsInSearchResu1tsPage</span>
+                <span class="ignored-method-name">loginUsingValidEmailAndInvalidPassword</span>
                 <br/>
-                <span class="ignored-method-name">verifyNavigationToProductComparisonPageFromSearchResu1tsPage</span>
+                <span class="ignored-method-name">verifyForgottenPasswordLink</span>
                 <br/>
-                <span class="ignored-method-name">verifyPlaceholdersInSearchPage</span>
+                <span class="ignored-method-name">verifyLoggingInUsingKeyboardKeys</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchUsingTextInProductDescription</span>
+                <span class="ignored-method-name">verifyPasswordIsNotVisibleInPageSource</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchWithProductHavingMultipleProducts</span>
+                <span class="ignored-method-name">verifyLoginPasswordFieldForVisibility</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchWithoutAnyProduct</span>
+                <span class="ignored-method-name">verifyBrowsingBackAfterLogin</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchUsingSerchCriteriaField</span>
+                <span class="ignored-method-name">loginUsingInvalidCredentials</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchWithAnExistingProduct</span>
+                <span class="ignored-method-name">loginWithoutCreddentials</span>
                 <br/>
-                <span class="ignored-method-name">verifySearchBySelectingSubCategoryOfProduct</span>
+                <span class="ignored-method-name">verifyBrowsingBackAfterLogout</span>
+                <br/>
+                <span class="ignored-method-name">loginUsingInactiveEmail</span>
+                <br/>
+                <span class="ignored-method-name">loginUsingValidCredentials</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginPageUI</span>
+                <br/>
+                <span class="ignored-method-name">loginUsingInvalidEmailAndValidPassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyDifferrentWaysOfNavigatingToLoginPage</span>
+                <br/>
+                <span class="ignored-method-name">verifyLoginAccountPageNavigations</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -257,18 +269,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.Search</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.Login</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyShowProductsByLimitingCount</span>
-                <span class="method-start">4574 ms</span>
+                <span class="method-name">verifyNumberOfUnsuccessfulAttempts</span>
+                <span class="method-start">2638 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">5429 ms</span>
+                <span class="method-start">5857 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

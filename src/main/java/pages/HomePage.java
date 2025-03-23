@@ -15,5 +15,9 @@ WebDriver driver;
 		this.driver= driver;
 		PageFactory.initElements(driver, this);
 	}
+	public HeaderOptions getHeaderOptions() {
+		return new HeaderOptions(driver);
+	}
+
 
 }

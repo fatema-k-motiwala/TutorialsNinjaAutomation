@@ -32,9 +32,12 @@ public class HeaderOptions extends RootPage {
 	@FindBy(xpath = "//span[text()='My Account']")
 	private WebElement myAccountDropMenu;
 
+	@FindBy(linkText = "My Account")
+	private WebElement myAccountOption;
+
 	@FindBy(linkText = "Register")
 	private WebElement registerOption;
-	
+
 	@FindBy(linkText = "Logout")
 	private WebElement logoutOption;
 
@@ -62,15 +65,31 @@ public class HeaderOptions extends RootPage {
 	public String getSearchBoxPlaceHolderText() {
 		return elementUtilities.getElementDomAttribute(searchBox, "placeholder");
 	}
+	public MyAccountPage selectMyAccountOption() {
+		elementUtilities.clickOnElement(myAccountOption);
+		return new MyAccountPage(driver);
+	}
 	
-	
-	public void enterProductIntoSearchBoxField(String product)
-	{
+
+	public void enterProductIntoSearchBoxField(String product) {
 		elementUtilities.enterTextIntoElement(searchBox, product);
 	}
+
 	public ShoppingCartPage selectcheckoutIcon() {
 		elementUtilities.clickOnElement(checkoutIcon);
 		return new ShoppingCartPage(driver);
+	}
+
+	public boolean isSearchBoxFieldDisplayed() {
+		return elementUtilities.isElementDisplayed(searchBox);
+	}
+
+	public boolean isSearchButtonDisplayed() {
+		return elementUtilities.isElementDisplayed(searchButton);
+	}
+
+	public boolean areSearchBoxFieldAndSearchButtonDisplayed() {
+		return isSearchBoxFieldDisplayed() && isSearchButtonDisplayed();
 	}
 
 	public ShoppingCartPage selectcheckoutOption() {
@@ -117,6 +136,11 @@ public class HeaderOptions extends RootPage {
 		return new RegisterPage(driver);
 	}
 
+	public RegisterPage navigateToRegisterPage() {
+		clickOnMyAccountDropMenu();
+		return selectRegisterOption();
+	}
+
 	public HomePage selectLogo() {
 		elementUtilities.clickOnElement(logo);
 		return new HomePage(driver);
@@ -126,7 +150,7 @@ public class HeaderOptions extends RootPage {
 		elementUtilities.clickOnElement(searchButton);
 		return new SearchPage(driver);
 	}
-	
+
 	public AccountLogoutPage selectLogoutOption() {
 		elementUtilities.clickOnElement(logoutOption);
 		return new AccountLogoutPage(driver);
@@ -136,15 +160,22 @@ public class HeaderOptions extends RootPage {
 		return elementUtilities.isElementDisplayed(logoutOption);
 
 	}
-	
-	public boolean isLoginOptionDisplayed() {
-	return elementUtilities.isElementDisplayed(loginOption);
 
-}
+	public boolean isLoginOptionDisplayed() {
+		return elementUtilities.isElementDisplayed(loginOption);
+
+	}
 
 	public LoginPage navigateToLoginPage() {
 		clickOnMyAccountDropMenu();
 		return selectLoginOption();
 	}
+
+	public SearchPage enterProductAndClickOnSearchButton(String productName) {
+		enterProductIntoSearchBoxField(productName);
+		return selectSearchButton();
+	}
+	
+
 
 }

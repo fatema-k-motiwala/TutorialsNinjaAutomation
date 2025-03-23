@@ -75,7 +75,7 @@ public class SearchPage extends RootPage {
 	private WebElement productCompareOption;
 
 	@FindBy(id = "input-sort")
-	private WebElement sortDropdownFie1d;
+	private WebElement sortDropdownField;
 	
 	@FindBy(xpath = "//div[@class='product-thumb']//h4/a")
 	private List<WebElement> sortedProducts;
@@ -88,7 +88,7 @@ public class SearchPage extends RootPage {
 
 
 	public void selectSortOptionInDropdownField(String optionText) {
-	elementUtilities.selectOptionFromDropdownFieldUsingText(sortDropdownFie1d, optionText);}
+	elementUtilities.selectOptionFromDropdownFieldUsingText(sortDropdownField, optionText);}
 
 	public boolean areProductsDisplayedInAscendingOrder() {
 		List<String> originalList = elementUtilities.getTextOfElements(sortedProducts) ;
@@ -130,7 +130,7 @@ public class SearchPage extends RootPage {
 		elementUtilities.clickOnElement(listOption);
 	}
 
-	public void selectOptionFromCategoryIdUsingIndex(String optionIndex) {
+	public void selectOptionFromCategoryIdUsingIndex(int optionIndex) {
 		elementUtilities.selectOptionFromDropdownFieldUsingIndex(categoryId, optionIndex);
 	}
 
@@ -170,6 +170,12 @@ public class SearchPage extends RootPage {
 		return elementUtilities.isElementDisplayed(searchBreadcrumb);
 
 	}
+	public SearchPage clickOnBreadcrumb() {
+		elementUtilities.clickOnElement(searchBreadcrumb);
+		return new SearchPage(driver);
+	}
+
+	
 
 	public boolean isProductDisplayedInSearchResults() {
 		return elementUtilities.isElementDisplayed(existingProduct);

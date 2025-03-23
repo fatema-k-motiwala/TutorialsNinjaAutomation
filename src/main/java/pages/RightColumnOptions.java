@@ -92,6 +92,11 @@ public class RightColumnOptions extends RootPage {
 		return new LoginPage(driver);
 	}
 
+	public MyAccountPage clickOnMyAccountOptionAfterLogin() {
+		elementUtilities.clickOnElement(myAccountOption);
+		return new MyAccountPage(driver);
+	}
+
 	public LoginPage clickOnAddressBookOption() {
 		elementUtilities.clickOnElement(addressBookOption);
 				return new LoginPage(driver);

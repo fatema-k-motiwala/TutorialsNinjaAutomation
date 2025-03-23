@@ -5,11 +5,20 @@
     <classes>
       <class name="tests.Login">
         <methods>
+          <include name="verifyNumberOfUnsuccessfulAttempts"/>
           <include name="teardown"/>
-          <include name="verifyPasswordIsNotVisibleInPageSource"/>
+          <include name="verifyRegisterAccountPageBreadcrumbURLTitleHeading"/>
           <include name="setup"/>
         </methods>
       </class> <!-- tests.Login -->
+      <class name="tests.Logout">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="verifyLoggingOutandBrowsingBack"/>
+          <include name="verifyLogoutPageBreadcrumbURLTitleHeading"/>
+        </methods>
+      </class> <!-- tests.Logout -->
       <class name="tests.Register">
         <methods>
           <include name="teardown"/>
@@ -17,18 +26,21 @@
           <include name="verifyMandatoryFieldsInRegisterAccountPage"/>
           <include name="verifyRegisteringAccountUsingInvalidTelephoneNumber"/>
           <include name="verifyRegisteringAccountByEnteringOnlySpaces"/>
-          <include name="verifyRegisterAccountUsingLeadingAndTrailingSpaces"/>
-          <include name="verifyHeightWidthNumberOfCharacters"/>
           <include name="setup"/>
+          <include name="verifyHeightWidthNumberOfCharacters"/>
+          <include name="verifyRegisterAccountUsingLeadingAndTrailingSpaces"/>
+          <include name="verifyRegisterAccountPageBreadcrumbURLTitleHeading"/>
         </methods>
       </class> <!-- tests.Register -->
-      <class name="tests.Logout">
+      <class name="tests.Search">
         <methods>
-          <include name="setup"/>
+          <include name="verifyShowProductsByLimitingCount"/>
           <include name="teardown"/>
-          <include name="verifyLogoutUI"/>
+          <include name="verifySearchAfterLogin"/>
+          <include name="verifySearchWithAnNonExistingProduct"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- tests.Logout -->
+      </class> <!-- tests.Search -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

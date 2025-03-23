@@ -26,7 +26,7 @@ public class Login extends Base {
 	@BeforeMethod
 	public void setup() {
 
-		driver = openBrowserAndApp1icationPageURL();
+		driver = openBrowserAndApplicationPageURL();
 
 		headerOptions = new HeaderOptions(driver);
 		headerOptions.clickOnMyAccountDropMenu();
@@ -38,7 +38,7 @@ public class Login extends Base {
 	public void loginUsingValidCredentials() {
 
 		assertTrue(loginPage.didWeNavigateToLoginPage());
-		loginPage.enterEmailAddress(prop.getProperty("exisitingEmail"));
+		loginPage.enterEmailAddress(prop.getProperty("existingEmail"));
 		loginPage.enterPassword(prop.getProperty("validPassword"));
 		myAccountPage = loginPage.clickOnLoginButton();
 		assertTrue(myAccountPage.didWeNavigateToMyAccountPage());
@@ -68,7 +68,7 @@ public class Login extends Base {
 	@Test(priority = 4)
 	public void loginUsingValidEmailAndInvalidPassword() {
 
-		loginPage.enterEmailAddress(prop.getProperty("exisitingEmail"));
+		loginPage.enterEmailAddress(prop.getProperty("existingEmail"));
 		loginPage.enterPassword(prop.getProperty("mismatchingPassword"));
 		loginPage.clickOnLoginButton();
 		assertEquals(loginPage.getPageLevelWarning(), "Warning: No match for E-Mail Address and/or Password.");
@@ -95,12 +95,12 @@ public class Login extends Base {
 	@Test(priority = 7)
 	public void verifyLoggingInUsingKeyboardKeys() {
 
-		actions = clickKeyboradKeyMu1tip1eTimes(getActions(driver), Keys.TAB, 23);
-		actions = typeTextUsingActions(actions, prop.getProperty("exisitingEmail"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 1);
+		actions = clickKeyboradKeyMultipleTimes(getActions(driver), Keys.TAB, 23);
+		actions = typeTextUsingActions(actions, prop.getProperty("existingEmail"));
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 1);
 		actions = typeTextUsingActions(actions, prop.getProperty("validPassword"));
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.TAB, 2);
-		actions = clickKeyboradKeyMu1tip1eTimes(actions, Keys.ENTER, 1);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.TAB, 2);
+		actions = clickKeyboradKeyMultipleTimes(actions, Keys.ENTER, 1);
 
 		myAccountPage = new MyAccountPage(driver);
 		assertTrue(myAccountPage.didWeNavigateToMyAccountPage());
@@ -117,7 +117,7 @@ public class Login extends Base {
 	@Test(priority = 9)
 	public void verifyBrowsingBackAfterLogin() {
 
-		myAccountPage = loginPage.logInToApplication(prop.getProperty("exisitingEmail"), prop.getProperty("validPassword"));
+		myAccountPage = loginPage.logInToApplication(prop.getProperty("existingEmail"), prop.getProperty("validPassword"));
 		navigateBackInBrowser(myAccountPage.getDriver());
 		refreshPage(myAccountPage.getDriver());
 		assertTrue(myAccountPage.didWeNavigateToMyAccountPage());
@@ -127,7 +127,7 @@ public class Login extends Base {
 	@Test(priority = 10)
 	public void verifyBrowsingBackAfterLogout() {
 
-		myAccountPage = loginPage.logInToApplication(prop.getProperty("exisitingEmail"),
+		myAccountPage = loginPage.logInToApplication(prop.getProperty("existingEmail"),
 				prop.getProperty("validPassword"));
 		headerOptions = myAccountPage.getHeaderOptions();
 		accountLogoutPage = headerOptions.selectLogoutOption();
@@ -150,13 +150,13 @@ public class Login extends Base {
 	@Test(priority = 12)
 	public void verifyNumberOfUnsuccessfulAttempts() {
 		String invalidEmail = CommonUtilities.generateBrandNewEmail();
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("validPassword"));
-		assertEquals(loginPage.getPageLevelWarning(),
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		myAccountPage = loginPage.logInToApplication(invalidEmail, prop.getProperty("mismatchingPassword"));
+		Assert.assertEquals(loginPage.getPageLevelWarning(),
 				"Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.");
 	}
 
@@ -391,7 +391,7 @@ public class Login extends Base {
 	public void verifyRegisterAccountPageBreadcrumbURLTitleHeading() {
 
 		Assert.assertEquals(getPageTitle(loginPage.getDriver()), "Account Login");
-		Assert.assertEquals(getPageURL(loginPage.getDriver()), prop.getProperty("loginPageURL"));
+		Assert.assertEquals(getPageURL(loginPage.getDriver()), getBaseURL()+prop.getProperty("loginPageURL"));
 		Assert.assertTrue(loginPage.didWeNavigateToLoginPage());
 		Assert.assertEquals(loginPage.getFirstPageHeading(), "New Customer");
 		Assert.assertEquals(loginPage.getSecondPageHeading(), "Returning Customer");
@@ -428,7 +428,7 @@ public class Login extends Base {
 	public void verifyRegisterAccountInAllEnvironments() {
 
 		Assert.assertTrue(loginPage.didWeNavigateToLoginPage());
-		loginPage.enterEmailAddress(prop.getProperty("exisitingEmail"));
+		loginPage.enterEmailAddress(prop.getProperty("existingEmail"));
 		loginPage.enterPassword(prop.getProperty("validPassword"));
 		myAccountPage = loginPage.clickOnLoginButton();
 		assertTrue(myAccountPage.didWeNavigateToMyAccountPage());
