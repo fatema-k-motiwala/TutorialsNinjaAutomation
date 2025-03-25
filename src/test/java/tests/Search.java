@@ -18,8 +18,7 @@ import utils.CommonUtilities;
 
 public class Search extends Base {
 
-	WebDriver driver;
-
+	public WebDriver driver;
 	@BeforeMethod
 	public void setup() {
 		driver = openBrowserAndApplicationPageURL();

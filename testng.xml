@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite">
-  <test name="Test">
-    <classes>
-      <class name="tests.Search"/>
-      <class name="tests.Register"/>
-      <class name="tests.Logout"/>
-      <class name="tests.Login"/>
-    </classes>
-  </test> <!-- Test -->
+	<listeners>
+		<listener class-name="listeners.MyListeners" />
+	</listeners>
+	<test name="Test">
+		<classes>
+			<class name="tests.Login" />
+			<methods>
+				<include name="verifyCopyingOfTextEnteredIntoPasswordField" />
+				<include name="verifyPasswordIsNotVisibleInPageSource" />
+				<include name="verifyLoggingIntoApplicaLtionUsingChangedPassword" />
+			</methods>
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

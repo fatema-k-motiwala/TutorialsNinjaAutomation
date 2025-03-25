@@ -19,10 +19,7 @@ import utils.CommonUtilities;
 
 public class Login extends Base {
 
-	WebDriver driver;
-
-
-
+	public WebDriver driver;
 	@BeforeMethod
 	public void setup() {
 

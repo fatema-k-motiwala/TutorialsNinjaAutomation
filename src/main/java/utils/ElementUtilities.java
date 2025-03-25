@@ -1,11 +1,15 @@
 package utils;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -22,7 +26,20 @@ public class ElementUtilities {
 	public ElementUtilities(WebDriver driver) {
 		this.driver = driver;
 	}
-
+	
+	public String captureScreenshotandReturnPath(String testname, WebDriver driver)
+	{
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File scrScreenshot = ts.getScreenshotAs(OutputType.FILE);
+		String destPath = System.getProperty("user.dir")+"\\ScreenShots\\"+testname+"png";
+		try {
+			org.openqa.selenium.io.FileHandler.copy(scrScreenshot, new File(destPath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return destPath;
+	}
+	
 	public void selectOptionFromDropdownFieldUsingIndex(WebElement element, int optionIndex)
 	{
 		if (isElementDisplayedOnPage(element) && element.isEnabled()) {

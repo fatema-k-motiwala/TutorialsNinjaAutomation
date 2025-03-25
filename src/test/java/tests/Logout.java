@@ -12,10 +12,7 @@ import pages.HeaderOptions;
 import utils.CommonUtilities;
 
 public class Logout extends Base {
-	WebDriver driver;
-
-
-
+	public WebDriver driver;
 	@BeforeMethod
 	public void setup() {
 
