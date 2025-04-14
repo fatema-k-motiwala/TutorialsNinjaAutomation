@@ -13,6 +13,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,7 +34,7 @@ public class ElementUtilities {
 		File scrScreenshot = ts.getScreenshotAs(OutputType.FILE);
 		String destPath = System.getProperty("user.dir")+"\\ScreenShots\\"+testname+"png";
 		try {
-			org.openqa.selenium.io.FileHandler.copy(scrScreenshot, new File(destPath));
+			FileHandler.copy(scrScreenshot, new File(destPath));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
